@@ -1,0 +1,36 @@
+#importing necessary library with alias name
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+#array
+student = np.array(['Abhishek','Raj','Rakesh','Raja','Harsh'])
+eng_marks = np.array([50, 60, 70, 55, 74])
+math_marks = np.array([70, 68, 80, 65, 84])
+
+#setting figure size ofr better plot
+plt.figure(figsize=(10,6))
+
+#plotting bar graph
+plt.bar(student, eng_marks, color='r',label='English Marks')
+plt.bar(student, math_marks, bottom=eng_marks, color='orange', label='Math Marks')
+
+plt.legend() #putting legend for better identification
+
+#putting title, xlabel, ylabel with text properties
+plt.title('Student Total Marks', fontsize=15, color='blue', family='cursive',
+          weight=800)
+plt.xlabel('Student Name', fontsize=12, color='blue', family='cursive')
+plt.ylabel('Marks', fontsize=12, color='blue', family='cursive')
+
+#labelling bars using text function and for loop
+for i in range(eng_marks.size):
+    plt.text(student[i], eng_marks[i]/2,eng_marks[i],ha='center', color='white', fontsize=15)
+for y in range(math_marks.size):
+    plt.text(student[y], eng_marks[y]+math_marks[y]/2, math_marks[y],ha='center',color='white', fontsize=15)
+for y in range(math_marks.size):
+    plt.text(student[y], eng_marks[y]+math_marks[y]+5, eng_marks[i]+math_marks[y],ha='center',
+             color='k', fontsize=15)
+             
+plt.ylim(0, 175) #used because label was getting out of the plot
+plt.show()
