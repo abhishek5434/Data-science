@@ -1,0 +1,35 @@
+#importing useful library with aliasing name
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+#arrays
+
+student = np.array(['Abhishek','Raj','Rakesh','Raja','Harsh'])
+eng_marks = np.array([50, 60, 70, 55, 74])
+math_marks = np.array([70, 68, 80, 65, 84])
+
+#making x axis float so that we can later we can position xticks correctly
+xpos =np.arange(len(student))
+
+w = 0.3 #width
+
+#plotting bar graph
+
+plt.bar(xpos, eng_marks,color='r',width=w)
+plt.bar(xpos+w, math_marks,color='g', width=w)
+
+#assigning title, xlabel, ylabel
+
+plt.title('Students Marks by subjects', color='k', family='cursive',fontsize=15, weight=1000)
+plt.xlabel('Students', color='k', family='cursive',fontsize=15, weight=1000)
+plt.ylabel('Student Marks', color='k', family='cursive',fontsize=15, weight=1000)
+
+#placing student in the middle
+
+plt.xticks(xpos+(w/2),student)
+
+plt.legend(['English Marks', 'Math Marks'])
+plt.grid(axis='y', alpha=0.4) #grid with less visibility so that it won't distract from viewing graph
+
+plt.show()
