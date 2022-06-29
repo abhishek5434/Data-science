@@ -1,0 +1,33 @@
+#importing necessary library
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+#array
+
+overs = np.arange(1, 21)
+xpos = np.arange(len(overs)) #temporary array
+India = [8, 6, 12, 3, 10, 12, 14, 8, 9, 4, 6, 8, 7, 9, 12, 3, 10, 9, 11, 12]
+Australia = [10, 2, 3, 1, 7, 12, 15, 16, 20, 4, 6, 7, 7, 10, 12, 3, 4, 6, 8, 4]
+
+w = 0.3 #customized width
+
+plt.figure(figsize=(16,8)) #customized figsize
+
+#plotting graphs
+
+plt.bar(xpos, India, width=w, label='India', color='b')
+plt.bar(xpos+w, Australia, width=w, label='Australia', color='y')
+
+#defining xticks in the mid
+plt.xticks(xpos+(w/2), overs)
+
+#defining title, xlabel, ylabel with text properties
+
+plt.title('India vs Australia Run Per Over', weight=1000, color='k', fontsize=20)
+plt.xlabel('Overs', weight=1000, color='k', fontsize=20)
+plt.ylabel('Runs', weight=1000, color='k', fontsize=20)
+
+plt.grid(axis='y', alpha=0.5)
+plt.legend(ncol=2, fontsize=10) 
+plt.show()
