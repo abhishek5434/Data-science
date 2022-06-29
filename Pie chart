@@ -1,0 +1,20 @@
+#importing library
+
+import matplotlib.pyplot as plt
+
+#array
+marks = [36, 45, 47, 55, 75]
+
+mylabel = ['English', 'Commerce', 'Accounts', 'Economics', 'Physical']
+
+myexplode = [0.0, 0.0, 0.0, 0.3, 0.0]
+
+mycolor = ['b', 'c', 'g', 'r', 'm']
+
+#plotting piechart using properties
+
+plt.pie(marks, labels=mylabel, autopct='%.2f%%', explode=myexplode, shadow=True, colors=mycolor,
+        startangle=90, counterclock=False, wedgeprops={'edgecolor': 'k', 'linestyle': '--',
+                                                       'linewidth': 3})
+plt.legend(title='4 Subjects Marks')
+plt.show()
