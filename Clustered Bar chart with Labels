@@ -1,0 +1,46 @@
+#importing libray
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+#arrays
+
+country_name = ['India','China','US','UK']
+gold_medals = np.array([60,40,50,20])
+silver_medals = np.array([50,30,25,43])
+bronze_medals = np.array([55,24,45,6])
+
+#defining xticks so that we can later change it with country labels
+
+xpos = np.arange(len(country_name)) #[0,1,2,3]
+
+w = 0.2 #defining width which default was 0.8
+
+#plotting graph
+
+plt.bar(xpos,gold_medals,color='#FFD700',width=w)
+plt.bar(xpos+w,silver_medals,color='#C0C0C0',width=w)
+plt.bar(xpos+2*w,bronze_medals,color='#CD7F32',width=w)
+
+#changing xticks with country name
+
+plt.xticks(xpos+w,country_name)
+
+#defining xlabel, ylabel, title with some text properties
+
+plt.ylabel('Country Name',color='b',fontsize=15)
+plt.xlabel('Number of Medals',color='b',fontsize=15)
+plt.title('Country Wise Medals Report',color='r',fontsize=15)
+
+
+plt.legend(['gold','silver','bronze']) #shoowing legends
+
+#defining labels for bars
+for i in range(len(country_name)):
+ plt.text(xpos[i],gold_medals[i]+1,gold_medals[i],
+ ha='center',color='r',weight=1000)
+ plt.text(xpos[i]+w,silver_medals[i]+1,silver_medals[i],
+ ha='center',color='r',weight=1000)
+ plt.text(xpos[i]+2*w,bronze_medals[i]+1,bronze_medals[i],
+ ha='center',color='r',weight=1000)
+plt.show()
