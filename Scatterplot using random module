@@ -1,0 +1,9 @@
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.random.randint(1, 101, 100)
+y = np.random.randint(1, 101, 100)
+colors = np.random.randint(1, 100, 100)
+sizes = 5*np.random.randint(1, 101, 100)
+plt.scatter(x, y, c=colors, cmap='viridis', s=sizes)
+plt.colorbar()
+plt.show()
