@@ -1,0 +1,26 @@
+import matplotlib.pyplot as plt
+from mpl_toolkits.basemap import Basemap
+fig = plt.figure(figsize=(12, 6))
+
+m = Basemap(projection='mill',
+            resolution='c',
+            llcrnrlat=6.5299575016180995,
+            llcrnrlon=66.89842445313221,
+            urcrnrlat=39.67051288389128,
+            urcrnrlon=95.72654965265919)
+
+m.drawcoastlines(linewidth=2)
+m.drawmapboundary(fill_color='aqua', linewidth=5, color='g')
+m.drawcountries(color='r', linewidth=2)
+m.drawparallels(range(-90, 90, 10), labels=[True, False, False, False])#labels=[left,rigth,top,bottom]
+m.drawmeridians(range(-180, 180, 30), labels=[False, False, False, True])
+
+x, y = m(86.1251, 26.0812) #x,y =m(longitude, latitude)
+plt.scatter(x, y, s=100, color='b')
+
+# print(x, y) == 1178585.111942659 2373389.0264288634
+
+plt.text(x-100000, y-300000, "Bahera,Bihar", ha='center', fontsize=15, backgroundcolor='y',
+         color='k', weight=1000)
+         
+plt.show()
